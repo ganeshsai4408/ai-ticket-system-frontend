@@ -6,7 +6,8 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
+    "build": "chmod +x node_modules/.bin/vite && vite build",
+    "vercel-build": "npm ci && npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
