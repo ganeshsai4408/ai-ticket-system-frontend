@@ -53,48 +53,58 @@ export default function SignupPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-base-200">
-      <div className="card w-full max-w-md shadow-xl bg-base-100">
-        <form onSubmit={handleSignup} className="card-body">
+      <div className="card w-full max-w-md shadow-xl bg-base-100 px-6 py-8">
+        <form onSubmit={handleSignup} className="space-y-4">
           <h2 className="card-title justify-center">Signup</h2>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="input input-bordered"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
+          <div className="form-control">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              className="input input-bordered w-full"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            className="input input-bordered"
-            value={form.password}
-            onChange={handleChange}
-            required
-          />
+          <div className="form-control">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              className="input input-bordered w-full"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-          <select
-            name="role"
-            className="select select-bordered"
-            value={form.role}
-            onChange={handleChange}
-          >
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-          </select>
+          <div className="form-control">
+            <select
+              name="role"
+              className="select select-bordered w-full"
+              value={form.role}
+              onChange={handleChange}
+            >
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
 
-          <input
-            type="text"
-            name="skills"
-            placeholder="Skills (comma separated)"
-            className="input input-bordered"
-            value={form.skills}
-            onChange={handleChange}
-          />
+          {form.role === "admin" && (
+            <div className="form-control">
+              <input
+                type="text"
+                name="skills"
+                placeholder="Skills (comma separated)"
+                className="input input-bordered w-full"
+                value={form.skills}
+                onChange={handleChange}
+              />
+            </div>
+          )}
 
           <div className="form-control mt-4">
             <button
